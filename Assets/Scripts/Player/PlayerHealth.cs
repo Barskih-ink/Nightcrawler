@@ -2,27 +2,54 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("Здоровье")]
     public int maxHealth = 5;
     public int currentHealth;
+    public Image healthBarFill;
+
+    [Header("Хилки")]
+    public int maxHeals = 1;
+    public int currentHeals;
+    public GameObject healIconPrefab;      // Префаб иконки хилки
+    public Transform healContainer;        // Horizontal Layout Group
+    private Image[] healIcons;             // Массив иконок для обновления цвета
+
+    [Header("Настройки")]
+    public int healAmount = 2;             // Сколько HP восстанавливает хилка
+    public KeyCode healKey = KeyCode.E;    // Клавиша использования хилки
+
     private Animator animator;
     public bool isDead { get; private set; } = false;
 
-
-    public Image healthBarFill; // <-- Сюда в инспекторе перетянешь Image (с fill amount)
-
     private void Start()
     {
-        currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
+
+        currentHeals = maxHeals;
+        GenerateHealIcons();
         UpdateHealthUI();
+        UpdateHealUI();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            TakeDamage(1);
+        }
+
+        if (Input.GetKeyDown(healKey))
+        {
+            UseHeal();
+        }
     }
 
     public void TakeDamage(int amount)
     {
-        if (currentHealth <= 0) return; // если уже мёртв, не продолжаем
+        if (isDead || currentHealth <= 0) return;
 
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -36,6 +63,23 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    public void UseHeal()
+    {
+        if (currentHeals <= 0 || isDead || currentHealth >= maxHealth) return;
+
+        currentHeals--;
+        currentHealth += healAmount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        UpdateHealthUI();
+        UpdateHealUI();
+
+        // Воспроизвести анимацию лечения
+        if (animator != null)
+        {
+            animator.SetTrigger("Heal");
+        }
+    }
 
     private void UpdateHealthUI()
     {
@@ -45,11 +89,37 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void UpdateHealUI()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        for (int i = 0; i < healIcons.Length; i++)
         {
-            TakeDamage(1);
+            if (healIcons[i] != null)
+            {
+                healIcons[i].color = (i < currentHeals) ? Color.white : Color.gray;
+            }
+        }
+    }
+
+    private void GenerateHealIcons()
+    {
+        if (healContainer == null || healIconPrefab == null) return;
+
+        // Очистить старые иконки
+        foreach (Transform child in healContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        healIcons = new Image[maxHeals];
+
+        for (int i = 0; i < maxHeals; i++)
+        {
+            GameObject icon = Instantiate(healIconPrefab, healContainer);
+            Image img = icon.GetComponent<Image>();
+            if (img != null)
+            {
+                healIcons[i] = img;
+            }
         }
     }
 
@@ -57,7 +127,6 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
         animator.SetTrigger("Die");
-        // Перезапуск сцены через 1.5 секунды (должно хватить для анимации)
         Invoke(nameof(ReloadLevel), 2.5f);
     }
 
@@ -65,5 +134,4 @@ public class PlayerHealth : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 }

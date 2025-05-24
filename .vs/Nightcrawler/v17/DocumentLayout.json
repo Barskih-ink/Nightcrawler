@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "D:\\GitHub Repos\\Nightcrawler\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\player\\playeranimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playeranimator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playermovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\player\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\ui\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +14,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "PlayerAnimator.cs",
-              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerAnimator.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerAnimator.cs",
-              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerAnimator.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerAnimator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T16:05:34.905Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "PlayerMovement.cs",
-              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerMovement.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T16:05:08.906Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "PlayerCombat.cs",
-              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerCombat.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerCombat.cs",
-              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerCombat.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerCombat.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwBkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T15:57:52.983Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PlayerHealth.cs",
-              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAgwD0AAAAFAAAAAAAAAA==",
+              "Title": "MainMenuController.cs",
+              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\UI\\MainMenuController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\MainMenuController.cs",
+              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\UI\\MainMenuController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UI\\MainMenuController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T15:40:37.09Z",
+              "WhenOpened": "2025-05-24T19:30:54.762Z",
               "EditorCaption": ""
             }
           ]
