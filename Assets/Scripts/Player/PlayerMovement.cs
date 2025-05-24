@@ -3,46 +3,44 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float MoveSpeed = 5f;
-    private float moveInput;
 
+    private float moveInput;
     private Rigidbody2D rb;
-    private PlayerWallGrab wallGrab;
-    private Animator animator;
-    private PlayerController playerController;
     private SpriteRenderer spriteRenderer;
+    private PlayerWallGrab wallGrab;
+    private PlayerHealth health;
+
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         wallGrab = GetComponent<PlayerWallGrab>();
-        animator = GetComponent<Animator>();
-        playerController = GetComponent<PlayerController>();
-        spriteRenderer = GetComponent<SpriteRenderer>(); // или GetComponentInChildren<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        health = GetComponent<PlayerHealth>();
     }
 
     private void Update()
     {
+        if (health != null && health.isDead) return;
+
         moveInput = Input.GetAxisRaw("Horizontal");
 
-        // === ОБНОВЛЕНИЕ ПАРАМЕТРОВ АНИМАЦИИ ===
-        if (animator != null && playerController != null)
+        // Отражение спрайта по направлению
+        if (moveInput > 0)
         {
-            animator.SetFloat("speed", Mathf.Abs(rb.linearVelocity.x));
-            animator.SetBool("IsGrounded", playerController.IsGrounded());
+            spriteRenderer.flipX = false;
         }
-
-        // === ФЛИП ПЕРСОНАЖА ===
-        if (spriteRenderer != null)
+        else if (moveInput < 0)
         {
-            if (moveInput > 0)
-                spriteRenderer.flipX = false;
-            else if (moveInput < 0)
-                spriteRenderer.flipX = true;
+            spriteRenderer.flipX = true;
         }
     }
 
     private void FixedUpdate()
     {
+        if (health != null && health.isDead) return;
+
+        // Блокируем движение при хвате за стену
         if (wallGrab != null && wallGrab.IsGrabbingWall)
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);

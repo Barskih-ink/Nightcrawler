@@ -8,13 +8,11 @@ public class PlayerLadderClimb : MonoBehaviour
 
     private Rigidbody2D rb;
     private float originalGravity;
-    private Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         originalGravity = rb.gravityScale;
-        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -24,14 +22,6 @@ public class PlayerLadderClimb : MonoBehaviour
         if (isClimbing)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, inputVertical * climbSpeed);
-
-            if (animator != null)
-                animator.SetBool("IsClimbing", true); // ÂÊËŞ×ÀÅÌ àíèìàöèş
-        }
-        else
-        {
-            if (animator != null)
-                animator.SetBool("IsClimbing", false); // ÂÛÊËŞ×ÀÅÌ
         }
     }
 
@@ -53,4 +43,10 @@ public class PlayerLadderClimb : MonoBehaviour
             rb.gravityScale = originalGravity;
         }
     }
+
+    public bool IsClimbing()
+    {
+        return isClimbing;
+    }
+
 }
