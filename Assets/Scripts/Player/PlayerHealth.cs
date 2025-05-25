@@ -132,6 +132,41 @@ public class PlayerHealth : MonoBehaviour
 
     private void ReloadLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (CheckpointManager.Instance != null && CheckpointManager.Instance.hasCheckpoint)
+        {
+            // Телепортируем на чекпоинт
+            transform.position = CheckpointManager.Instance.respawnPosition;
+
+            // Восстановим здоровье и хилки
+            HealToFull();
+            RefillHeals();
+
+            // Сброс состояний анимации
+            isDead = false;
+            animator.ResetTrigger("Die");
+            animator.Play("idle"); // или "Respawn" — убедись, что такое состояние есть
+
+            // Можно добавить небольшую неуязвимость после возрождения
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
+
+
+
+
+    public void HealToFull()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthUI();
+    }
+
+    public void RefillHeals()
+    {
+        currentHeals = maxHeals;
+        UpdateHealUI();
+    }
+
 }

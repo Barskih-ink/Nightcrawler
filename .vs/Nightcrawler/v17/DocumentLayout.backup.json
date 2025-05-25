@@ -1,37 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\GitHub Repos\\Nightcrawler\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\ui\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\mainmenucontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainMenuController.cs",
-              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\UI\\MainMenuController.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\MainMenuController.cs",
-              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\UI\\MainMenuController.cs",
-              "RelativeToolTip": "Assets\\Scripts\\UI\\MainMenuController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-24T19:30:54.762Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }
