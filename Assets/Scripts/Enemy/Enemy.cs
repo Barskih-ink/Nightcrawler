@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour
     protected float shieldCooldown = 5f;         // Время между активациями
     protected float lastShieldTime = -Mathf.Infinity;
 
+    [Header("Souls Reward")]
+    public int soulsReward = 10;
+
     protected Rigidbody2D rb;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
@@ -150,15 +153,17 @@ public class Enemy : MonoBehaviour
     protected virtual void Attack()
     {
         animator.SetTrigger("Attack");
-        Debug.Log($"{gameObject.name} атакует игрока с уроном {attackDamage}");
+    }
 
-        // Проверяем игрока на здоровье и наносим урон
+    public void PerformAttack()
+    {
         if (player != null)
         {
             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(attackDamage);
+                Debug.Log($"{gameObject.name} нанес урон {attackDamage} игроку");
             }
         }
     }
@@ -187,6 +192,15 @@ public class Enemy : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
+
+        // Найти игрока и начислить души
+        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.AddSouls(soulsReward);
+            Debug.Log($"{gameObject.name} умер. Игрок получил {soulsReward} душ.");
+        }
+
         Destroy(gameObject, 3f); // подождать анимацию
     }
 

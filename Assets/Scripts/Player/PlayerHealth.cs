@@ -1,6 +1,7 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -20,6 +21,14 @@ public class PlayerHealth : MonoBehaviour
     public int healAmount = 2;             // Сколько HP восстанавливает хилка
     public KeyCode healKey = KeyCode.E;    // Клавиша использования хилки
 
+    [Header("Souls UI")]
+    public int currentSouls = 0;
+    public TMP_Text soulsCountText;  // Ссылка на UI-текст в правом верхнем углу
+
+    [Header("Экран смерти")]
+    public GameObject deathScreenUI;
+
+
     private Animator animator;
     public bool isDead { get; private set; } = false;
 
@@ -32,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
         GenerateHealIcons();
         UpdateHealthUI();
         UpdateHealUI();
+        UpdateSoulsUI();
     }
 
     private void Update()
@@ -44,6 +54,28 @@ public class PlayerHealth : MonoBehaviour
         if (Input.GetKeyDown(healKey))
         {
             UseHeal();
+        }
+    }
+
+    // Метод для добавления душ
+    public void AddSouls(int amount)
+    {
+        currentSouls += amount;
+        UpdateSoulsUI();
+    }
+
+    // Метод для сброса душ при смерти
+    public void ResetSouls()
+    {
+        currentSouls = 0;
+        UpdateSoulsUI();
+    }
+
+    private void UpdateSoulsUI()
+    {
+        if (soulsCountText != null)
+        {
+            soulsCountText.text = currentSouls.ToString();
         }
     }
 
@@ -126,9 +158,44 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         isDead = true;
+        ResetSouls();
         animator.SetTrigger("Die");
-        Invoke(nameof(ReloadLevel), 2.5f);
+
+        if (deathScreenUI != null)
+        {
+            deathScreenUI.SetActive(true);
+        }
+
+        StartCoroutine(HandleDeathRoutine());
     }
+
+    private System.Collections.IEnumerator HandleDeathRoutine()
+    {
+        yield return new WaitForSeconds(2.5f);
+
+        if (CheckpointManager.Instance != null && CheckpointManager.Instance.hasCheckpoint)
+        {
+            // Телепорт к костру
+            transform.position = CheckpointManager.Instance.respawnPosition;
+
+            HealToFull();
+            RefillHeals();
+
+            isDead = false;
+            animator.ResetTrigger("Die");
+            animator.Play("idle");
+
+            if (deathScreenUI != null)
+            {
+                deathScreenUI.SetActive(false);
+            }
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
 
     private void ReloadLevel()
     {

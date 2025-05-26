@@ -37,6 +37,11 @@ public class PlayerCombat : MonoBehaviour
         FlipAttackPoint(); // Автоматически зеркалит точку атаки
     }
 
+    public void PerformAttack()
+    {
+        Attack();
+    }
+
     void Attack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
