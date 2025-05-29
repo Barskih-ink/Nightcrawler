@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 
@@ -21,38 +22,59 @@ public class Bonfire : MonoBehaviour
 
     private void OpenBonfireMenu()
     {
+        // Найдём игрока, если ссылки не установлены
+        if (playerMovement == null || playerCombat == null || playerHealth == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerMovement = player.GetComponent<PlayerMovement>();
+                playerCombat = player.GetComponent<PlayerCombat>();
+                playerHealth = player.GetComponent<PlayerHealth>();
+            }
+        }
+
         pauseMenuCanvas.SetActive(true);
         Time.timeScale = 0f;
 
-        // Отключаем управление
         if (playerMovement != null)
             playerMovement.enabled = false;
         if (playerCombat != null)
             playerCombat.enabled = false;
 
-        // Установить чекпоинт
         CheckpointManager.Instance?.SetCheckpoint(transform.position);
 
-        // Восстановить здоровье и хилки
         if (playerHealth != null)
         {
             playerHealth.HealToFull();
             playerHealth.RefillHeals();
         }
-
     }
+
 
     public void CloseBonfireMenu()
     {
         pauseMenuCanvas.SetActive(false);
         Time.timeScale = 1f;
 
-        // Включаем управление
+        // Найдём игрока, если ссылки не установлены
+        if (playerMovement == null || playerCombat == null)
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                playerMovement = player.GetComponent<PlayerMovement>();
+                playerCombat = player.GetComponent<PlayerCombat>();
+            }
+        }
+
         if (playerMovement != null)
             playerMovement.enabled = true;
         if (playerCombat != null)
             playerCombat.enabled = true;
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {

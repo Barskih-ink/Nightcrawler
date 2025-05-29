@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\GitHub Repos\\Nightcrawler\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\core\\debugmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\core\\debugmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\player\\checkpointmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\checkpointmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\player\\bonfire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\bonfire.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|d:\\github repos\\nightcrawler\\assets\\scripts\\player\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83B94B18-E109-0057-EE1C-DBFA2563ABAD}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercombat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -27,40 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CheckpointManager.cs",
-              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\CheckpointManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\CheckpointManager.cs",
-              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\CheckpointManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\CheckpointManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T16:05:52.167Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Bonfire.cs",
-              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\Bonfire.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Bonfire.cs",
-              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\Bonfire.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\Bonfire.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAADwv1QAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T16:05:32.852Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "PlayerHealth.cs",
               "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerHealth.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerHealth.cs",
               "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerHealth.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerHealth.cs",
-              "ViewState": "AgIAAKQAAAAAAAAAAAAcwLUAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAN4AAAAAAAAAAAAIwAMBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-26T16:05:11.995Z",
+              "WhenOpened": "2025-05-29T14:19:27.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PlayerCombat.cs",
+              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerCombat.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerCombat.cs",
+              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Player\\PlayerCombat.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerCombat.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAswEoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T13:47:03.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DebugMenu.cs",
+              "DocumentMoniker": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Core\\DebugMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Core\\DebugMenu.cs",
+              "ToolTip": "D:\\GitHub Repos\\Nightcrawler\\Assets\\Scripts\\Core\\DebugMenu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Core\\DebugMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-29T13:46:02.721Z",
               "EditorCaption": ""
             }
           ]

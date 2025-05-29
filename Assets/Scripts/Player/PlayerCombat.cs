@@ -12,6 +12,9 @@ public class PlayerCombat : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private PlayerHealth health;
 
+    private bool isAttacking = false;
+    public float attackCooldown = 0.25f;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -24,18 +27,18 @@ public class PlayerCombat : MonoBehaviour
     {
         if (health != null && health.isDead) return;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isAttacking && !wallGrab.IsGrabbingWall)
         {
-            // ћожно атаковать только если не хватаетс€ за стену
-            if (!wallGrab.IsGrabbingWall)
-            {
-                animator.SetTrigger("Attack");
-                //Attack();
-            }
+            animator.Play("attacks", 0, 0); // мгновенно и без ожидани€
+            //Attack();
+            isAttacking = true;
+            Invoke(nameof(ResetAttack), attackCooldown);
         }
 
-        FlipAttackPoint(); // јвтоматически зеркалит точку атаки
+        FlipAttackPoint();
     }
+
+    void ResetAttack() => isAttacking = false;
 
     public void PerformAttack()
     {

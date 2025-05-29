@@ -32,9 +32,12 @@ public class PlayerHealth : MonoBehaviour
     private Animator animator;
     public bool isDead { get; private set; } = false;
 
+    private PlayerMovement playerMovement;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        playerMovement = GetComponent<PlayerMovement>(); // получаем ссылку
         currentHealth = maxHealth;
 
         currentHeals = maxHeals;
@@ -55,6 +58,17 @@ public class PlayerHealth : MonoBehaviour
         {
             UseHeal();
         }
+    }
+
+    public bool TrySpendSouls(int amount)
+    {
+        if (currentSouls >= amount)
+        {
+            currentSouls -= amount;
+            UpdateSoulsUI();
+            return true;
+        }
+        return false;
     }
 
     // ћетод дл€ добавлени€ душ
@@ -82,6 +96,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         if (isDead || currentHealth <= 0) return;
+
+        // ≈сли игрок перекатываетс€, игнорируем урон
+        if (playerMovement != null && playerMovement.IsRolling)
+        {
+            return;
+        }
 
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -132,7 +152,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void GenerateHealIcons()
+    public void GenerateHealIcons()
     {
         if (healContainer == null || healIconPrefab == null) return;
 

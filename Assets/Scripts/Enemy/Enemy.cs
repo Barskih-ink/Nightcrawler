@@ -36,6 +36,10 @@ public class Enemy : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
 
+    public int CurrentHealth => currentHealth;
+    public int MaxHealth => maxHealth;
+
+
     protected virtual void Start()
     {
         currentHealth = maxHealth;
@@ -54,7 +58,7 @@ public class Enemy : MonoBehaviour
 
         if (player != null)
         {
-            TryActivateShield();  // <--- Добавлено
+            TryActivateShield();
             ChaseAndAttackPlayer();
         }
         else
@@ -190,11 +194,12 @@ public class Enemy : MonoBehaviour
     {
         animator.SetTrigger("Die");
         rb.linearVelocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Static;
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
 
         // Найти игрока и начислить души
-        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+        PlayerHealth playerHealth = FindFirstObjectByType<PlayerHealth>();
         if (playerHealth != null)
         {
             playerHealth.AddSouls(soulsReward);
